@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SID💖</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.container{
+padding:20px;
+max-width:350px;
+}
+
+img{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+margin-bottom:20px;
+}
+
+h1{
+font-size:26px;
+margin-bottom:10px;
+}
+
+.buttons{
+margin-top:20px;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:25px;
+margin:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+#yes{
+background:#ff4d6d;
+color:white;
+}
+
+#no{
+background:white;
+color:#333;
+position:relative;
+}
+
+#message{
+display:none;
+font-size:22px;
+margin-top:20px;
+}
+
+#funny{
+margin-top:15px;
+font-size:18px;
+min-height:25px;
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-10px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="photo.png" alt="photo">
+
+<h1>Hey MISS YOU ❤️</h1>
+<p>I have something important to ask you...</p>
+<h2>Will you go on a date with me after exams? 🥺</h2>
+
+<div class="buttons">
+<button id="yes" onclick="yesClicked()">Yes 💖</button>
+<button id="no" onmouseover="moveButton()">No 🙈</button>
+</div>
+
+<p id="funny"></p>
+
+<div id="message">
+Yay!!! I knew you'd say yes 😍<br>
+Hehehehhe elobbbuuuuuuu 🌹
+</div>
+
+</div>
+
+<script>
+
+let lines = [
+"Nice try sidd 😏",
+"Are you sure about that mrs wadekar? 🤨",
+"No is not an option 😂",
+"You missed the Yes button 👀",
+"Try again... but press Yes mylobb 😌",
+"I'll keep running away 🏃",
+"You can't escape this question 😜",
+"Just say yes mylobb 😭"
+];
+
+function yesClicked(){
+document.getElementById("message").style.display="block";
+}
+
+function moveButton(){
+let btn = document.getElementById("no");
+
+let x = Math.random()*300 - 150;
+let y = Math.random()*300 - 150;
+
+btn.style.transform = `translate(${x}px,${y}px)`;
+
+let randomLine = lines[Math.floor(Math.random()*lines.length)];
+document.getElementById("funny").innerText = randomLine;
+}
+
+/* floating hearts */
+
+setInterval(()=>{
+let heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},500);
+
+</script>
+
+</body>
+</html>
